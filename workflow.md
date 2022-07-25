@@ -11,6 +11,7 @@ Here is a summary of Costanza's thesis to guide the whole work.
 
 # From LHE to histograms
 
+## Costanza's workflow
 
 ## Plotting tool
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
