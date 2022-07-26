@@ -65,6 +65,25 @@ NB: Root files thus obtained are useful for visualize observable distributions, 
 
 ### Producing combine friendly files: "merge" and "merge_multipart" codes
 
+Combine requires specific names for histograms of background's (SM) and signal's (SM+EFT) histograms. ```merge``` and ```merge_multipart``` codes arrange histograms previously produced into a single .root file which can be easily read by combine. ```merge``` requires as first input the observable that you want to consider, and as second input the particle to which that observable is associated. For example, to study transverse momenta of higher energy jet the command line is:
+
+```
+./merge PT j1
+```
+```merge_multipart``` has as its only argument the observable of interest:
+
+```
+./merge_multipart mjj
+```
+Path of histograms produced with ```all_observable``` must be well specified in the code. EFT contribution to include in the file must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is a .root file named with the considered observable. Some examples are listed below.
+
+```
+Eta_l1.root
+PT_j2.root
+mll.root
+```
+These files can interface directly with combine for likelihood scan application.
+
 ## Plotting tool
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
 
