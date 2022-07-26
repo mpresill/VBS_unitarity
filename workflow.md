@@ -63,6 +63,8 @@ hadd -f SM_cW_int_quad.root SM.root cW_int.root cW_quad.root
 ```
 NB: Root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
 
+### Histograms plotting
+
 ### Producing combine friendly files: "merge" and "merge_multipart" codes
 
 ## Plotting tool
