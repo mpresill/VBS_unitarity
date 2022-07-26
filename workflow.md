@@ -81,6 +81,14 @@ for(int i=0; i<treeReader->GetEntries(); i++){
   }
 ```
 
+For mixed-contributions histograms, ```hadd``` command should be used:
+
+```
+hadd -f SM_cW_int.root SM.root cW_int.root  ## SM + linear ##
+hadd -f SM_cW_quad.root SM.root cW_quad.root  ## SM + quadratic ##
+hadd -f SM_cW_int_quad.root SM.root cW_int.root cW_quad.root  ## SM + full EFT ##
+```
+
 ## Plotting tool
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
 
