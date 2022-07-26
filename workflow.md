@@ -20,6 +20,8 @@ Somewhere (need to review where and how) there is an executable file named ```Ex
 
 ## Costanza's workflow
 
+Root files for one-operator contibutions are stored in [this](https://cernbox.cern.ch/index.php/s/SJ9wITRWR5LOqeo) repository. EFT linear and quadratic contributions have been produced separately. In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed.\\
+Miao
 
 
 ## Plotting tool
