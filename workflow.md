@@ -29,7 +29,7 @@ The codes used to construct histograms of a specific observable are written in C
 ./all_mjj cW_int
 ./all_mjj cW_quad
 ```
-For the correct working of the codes, path of .root files and of the output file must be modified directly in the code (it may be possible to add two input arguments corresponding to two paths, to make the codes more general). Taking as an example the code ``` all_Eta```, it uses the PDG particle numbering scheme to search in ```Particle.Eta``` branch the value of pseudorapidity of outcoming charged particles (two leptons in the final state and two quarks that hadronize), event for event.
+For the correct working of the codes, path of .root files and of the output file must be modified directly in the code (it may be possible to add two input arguments corresponding to two paths, to make the codes more general). Taking as an example the code ``` all_Eta```, it uses the PDG particle numbering scheme to search in ```Particle.Eta``` branch the value of pseudorapidity of outcoming charged particles (two leptons in the final state and two quarks that hadronize), event for event (NB: in some cases, the index of the particle in the event is used instead of PDG number for the identification).
 ```
 if(abs(Particle->PID)<10&&(j==npart-1||j==npart-2)) {
       				  Etaj.push_back(Particle->Eta); }    
@@ -79,8 +79,6 @@ for(int i=0; i<treeReader->GetEntries(); i++){
 	else{Mjj->Fill(mjj,w);
       v.Clear(); 
   }
-
-
 ```
 
 ## Plotting tool
