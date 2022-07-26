@@ -22,7 +22,15 @@ Somewhere (need to review where and how) there is an executable file named ```Ex
 
 Root files for one-operator contibutions are stored in [this](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/data) repository. EFT linear and quadratic contributions have been produced separately. In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed. ```Particle``` branch contains all kinematic informations about the event: for example, ```Particle.PT``` is a histograms filled with PTs of all particles entering the event. Starting from here, it is possible to obtain the kinematic information relating to the single particles (pseudorapidity, transverse momenta, etc.) and construct more complex observables (transverse masses, etc.). 
 ### "all_observable" codes
-The codes used to construct histograms of a specific observable are written in C++ and are stored in [src (w bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%20bound)) and [src (w/o bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%7Co%20bound)) repositories, and are named ```all_observable``` (where "observable" is the observable of interest).
+The codes used to construct histograms of a specific observable are written in C++ and are stored in [src (w bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%20bound)) and [src (w/o bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%7Co%20bound)) repositories, and are named ```all_observable``` (where "observable" is the observable of interest). Codes require as argument the name of the root file, e.g.
+
+```
+./all_mjj SM
+./all_mjj cW_int
+./all_mjj cW_quad
+```
+
+
 PDG particle numbering scheme
 
 ## Plotting tool
