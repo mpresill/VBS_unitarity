@@ -88,6 +88,7 @@ hadd -f SM_cW_int.root SM.root cW_int.root  ## SM + linear ##
 hadd -f SM_cW_quad.root SM.root cW_quad.root  ## SM + quadratic ##
 hadd -f SM_cW_int_quad.root SM.root cW_int.root cW_quad.root  ## SM + full EFT ##
 ```
+NB: Root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
 
 ## Plotting tool
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
