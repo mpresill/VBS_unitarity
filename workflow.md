@@ -32,12 +32,11 @@ The codes used to construct histograms of a specific observable are written in C
 For the correct working of the codes, path of .root files and of the output file must be modified directly in the code (it may be possible to add two input arguments corresponding to two paths, to make the codes more general). Taking as an example the code ``` all_Eta```, it uses the PDG particle numbering scheme to search in ```Particle.Eta``` branch the value of pseudorapidity of outcoming charged particles (two leptons in the final state and two quarks that hadronize).
 ```
 if(abs(Particle->PID)<10&&(j==npart-1||j==npart-2)) {
-      				  PTj.push_back(Particle->PT);
-      				  Etaj.push_back(Particle->Eta); } 
-      else if(abs(Particle->PID)==11||abs(Particle->PID)==15||abs(Particle->PID)==13) {
-      				  PTl.push_back(Particle->PT);
+      				  Etaj.push_back(Particle->Eta); }    
+else if(abs(Particle->PID)==11||abs(Particle->PID)==15||abs(Particle->PID)==13) {
       				  Etal.push_back(Particle->Eta); }
 ```
+
 
 
 ## Plotting tool
