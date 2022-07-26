@@ -29,7 +29,7 @@ The codes used to construct histograms of a specific observable are written in C
 ./all_mjj cW_int
 ./all_mjj cW_quad
 ```
-For the correct working of the codes, path of .root files and of the output file must be modified directly in the code (it may be possible to add two input arguments corresponding to two paths, to make the codes more general). Taking as an example the code ``` all_Eta```, it uses the PDG particle numbering scheme to search in ```Particle.Eta``` branch the value of pseudorapidity of outcoming charged particles (two leptons in the final state and two quarks that hadronize).
+For the correct working of the codes, path of .root files and of the output file must be modified directly in the code (it may be possible to add two input arguments corresponding to two paths, to make the codes more general). Taking as an example the code ``` all_Eta```, it uses the PDG particle numbering scheme to search in ```Particle.Eta``` branch the value of pseudorapidity of outcoming charged particles (two leptons in the final state and two quarks that hadronize), event for event.
 ```
 if(abs(Particle->PID)<10&&(j==npart-1||j==npart-2)) {
       				  Etaj.push_back(Particle->Eta); }    
@@ -37,6 +37,12 @@ else if(abs(Particle->PID)==11||abs(Particle->PID)==15||abs(Particle->PID)==13) 
       				  Etal.push_back(Particle->Eta); }
 ```
 
+Pseudorapidities of these particles are then collected in different histograms (one for each different type of particle): the latter are normalized with following weight
+
+```
+w = xsec*lum/n
+```
+where ```xsec``` is the cross section of the process, calculated directly by MadGraph in the generation and inserted by hand in the code (specific information can be replaced by few lines that implement the searching for the cross section value directly in the .root file); ```lum``` is luminosity, set to 100 inverse fb by default; ```n``` is the number of events.
 
 
 ## Plotting tool
