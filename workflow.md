@@ -81,12 +81,14 @@ for(int i=0; i<treeReader->GetEntries(); i++){
   }
 ```
 
-For mixed-contributions histograms, ```hadd``` command should be used:
+For mixed-contributions histograms, ```hadd``` command should be used.
+Summarizing, the list of commands to obtain distribution for, e.g., cW contributions to invariant mass of jets, are:
 
 ```
-hadd -f SM_cW_int.root SM.root cW_int.root  ## SM + linear ##
-hadd -f SM_cW_quad.root SM.root cW_quad.root  ## SM + quadratic ##
-hadd -f SM_cW_int_quad.root SM.root cW_int.root cW_quad.root  ## SM + full EFT ##
+./all_mjj SM
+./all_mjj cW_int
+./all_mjj cW_quad
+hadd -f SM_cW_int_quad.root SM.root cW_int.root cW_quad.root  
 ```
 NB: Root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
 
