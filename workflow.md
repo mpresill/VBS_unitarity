@@ -20,9 +20,9 @@ Somewhere (need to review where and how) there is an executable file named ```Ex
 
 ## Costanza's workflow
 
-Root files for one-operator contibutions are stored in [this](https://cernbox.cern.ch/index.php/s/SJ9wITRWR5LOqeo) repository. EFT linear and quadratic contributions have been produced separately. In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed. ```Particle``` branch contains all kinematic informations about the event: for example, ```Particle.PT``` is a histograms filled with PTs of all particles entering the event. Starting from here, it is possible to obtain the kinematic information relating to the single particles (pseudorapidity, transverse momenta, etc.) and construct more complex observables (transverse masses, etc.). 
-### "all_observable" code
-The codes used to construct histograms of a specific observable are stored in [src](https://cernbox.cern.ch/index.php/s/8PCjWHilk7ofXcf) repository, and are named ```all_observable``` (where "observable" is the observable of interest).
+Root files for one-operator contibutions are stored in [this](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/data) repository. EFT linear and quadratic contributions have been produced separately. In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed. ```Particle``` branch contains all kinematic informations about the event: for example, ```Particle.PT``` is a histograms filled with PTs of all particles entering the event. Starting from here, it is possible to obtain the kinematic information relating to the single particles (pseudorapidity, transverse momenta, etc.) and construct more complex observables (transverse masses, etc.). 
+### "all_observable" codes
+The codes used to construct histograms of a specific observable are written in C++ and are stored in [src (w bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%20bound) and [src (w/o bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%7Co%20bound)) repositories, and are named ```all_observable``` (where "observable" is the observable of interest).
 PDG particle numbering scheme
 
 ## Plotting tool
