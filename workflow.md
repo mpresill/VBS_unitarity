@@ -75,7 +75,7 @@ Combine requires specific names for histograms of background's (SM) and signal's
 ```
 ./merge_multipart mjj
 ```
-Path of histograms produced with ```all_observable``` must be well specified in the code. EFT contribution to include in the file must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is a .root file named with the considered observable. Some examples are listed below.
+Path of histograms produced with ```all_observable``` must be properly specified in the code. EFT contribution to include in the file must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is a .root file named with the considered observable. Some examples are listed below.
 
 ```
 Eta_l1.root
