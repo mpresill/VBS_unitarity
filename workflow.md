@@ -5,6 +5,11 @@ Here is a summary of Costanza's thesis to guide the whole work.
 
 # Computation of helicity amplitudes in Mathematica
 
+```FeynRules``` package, available for download [here](https://feynrules.irmp.ucl.ac.be/).
+
+```FeynInstall``` script, available [here](http://www.feynarts.de/), for the installation of ```FeynArts``` and ```FormCalc``` packages. An additional package is also needed, that is [VecSet](https://github.com/vsht/formcalc-mirror/blob/master/tools/VecSet.m), which contains functions to define components of four-vectors.
+
+[FeynArts Models](https://github.com/mpresill/VBS_unitarity/tree/main/FeynArts%20Models) folder.
 
 # MC simulation 
 step 1: after producing gridpack in the ```genproductions/bin/Madgraph5_aMCatNLO``` or if you already have the gridpack you can copy it in this directory.
