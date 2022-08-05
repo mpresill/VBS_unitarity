@@ -44,8 +44,23 @@ In[1] = Collect[b x^2 + 5 x + 7 x^2 + 9 a x + 2, x]
 Out[1] = 2 + (5+9a)x + (7+b)x^2
 ```
 After collection, the factors ~ O(1) and ~ O(c_i^2) are easily identifiable and can be deleted by-hand;
-- Miao
+- High-energy limit can be imposing the neglection of masses as compared to p; it can be done with ```/.``` syntax of Mathematica:
+```
+In[1] = expression /. condition 1; condition 2; ...
+```
+for example:
+```
+In[1] = sqrt(p^2 + mW2)   /. p^2 + mW2 = p^2
+Out[1] = p
+```
+- Using same method Mandelstam variables can be redefined as functions of center of mass energy S, as follows:
+```
+T = -(1+cos(theta))*S/2
+U = -(1-cos(theta))*S/2
+```
+In that way can be highlighted the term of the amplitude that violates unitarity ( ~ O(S)).
 
+These steps considerably simplify the expression of the amplitude, reporting only the term of interest for the calculation of the unitarity constraints. The last few steps can be done easily with by-hand calculations.
 
 # MC simulation 
 step 1: after producing gridpack in the ```genproductions/bin/Madgraph5_aMCatNLO``` or if you already have the gridpack you can copy it in this directory.
