@@ -8,6 +8,7 @@ Several Mathematica extensions must be installed to calculate the scattering amp
 - ```FeynRules``` package, available for download [here](https://feynrules.irmp.ucl.ac.be/), for the generation of EFT models;
 - ```FeynInstall``` script, available [here](http://www.feynarts.de/), for the installation of ```FeynArts``` and ```FormCalc``` packages, necessary to draw the Feynman diagrams and to calculate the amplitudes;
 - an additional package is also needed, that is ```VecSet```, defined [here](https://github.com/vsht/formcalc-mirror/blob/master/tools/VecSet.m), which contains functions to define components of four-vectors.
+
 First step is the generation of EFT models. To decrease the computational load, it is preferable to generate a different model for each EFT contribution. The Mathematica notebook for model generation is contained in the [FeynArts Models](https://github.com/mpresill/VBS_unitarity/tree/main/FeynArts%20Models) folder. To select the EFT contribution you want to include, simply delete the extra Lagrangian pieces.
 
 # MC simulation 
