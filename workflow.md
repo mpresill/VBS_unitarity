@@ -12,6 +12,21 @@ Several Mathematica extensions must be installed to calculate the scattering amp
 ## Model generation
 First step is the generation of EFT models. To decrease the computational load, it is preferable to generate a different model for each EFT contribution. The Mathematica notebook for model generation is contained in the [FeynArts Models](https://github.com/mpresill/VBS_unitarity/tree/main/FeynArts%20Models) folder. To select the EFT contribution you want to include, simply delete the extra Lagrangian pieces. Cards loaded in the notebook must be downloaded [here](https://github.com/SMEFTsim/SMEFTsim). Once all the models associated with the operators involved have been generated, they must be moved to ```FeynArts/Models``` folder.
 ## Amplitude computation
+Codes for amplitude computation are stored [here](https://github.com/mpresill/VBS_unitarity/tree/main/Amplitudes%20Calculation%20Mathematica). Each code differs from the others for the loaded model and for the combination of helicity in the initial and final states. First of all 
+```FeynArts```, ```FormCalc``` and ```VecSet``` packages are loaded. Following, the code consists of seven parts with the same structure:
+
+```
+1     name = "VBSssWW"
+2     process = {V[3],V[3] -> V[3],V[3]}
+3     top = CreateTopologies[0, 2->2];
+4     VBStop = InsertFields[top,process,GenericModel->"cW",Model->"cW"]
+5     ht = DiagramExtract[VBStop,4]
+6     FormDot = TermCollect;
+7     ampht = CalcFeynAmp[CreateFeynAmp[ht]];
+8     res2 = Unabbr[ampht];
+9     higgst = Simplify[ToComponents[res2,"++--"]];
+
+```
 
 
 # MC simulation 
