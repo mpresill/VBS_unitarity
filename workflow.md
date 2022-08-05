@@ -7,24 +7,30 @@ Here is a summary of Costanza's thesis to guide the whole work.
 
 
 # MC simulation 
-step 1: after producing gridpack in the genproductions/bin/Madgraph5_aMCatNLO or if you already have the gridpack you can copy it in this directory.
+step 1: after producing gridpack in the ```genproductions/bin/Madgraph5_aMCatNLO``` or if you already have the gridpack you can copy it in this directory.
 
 step 2: make directory and untar gridpack into that directory.
 
+```
 mkdir work
 
 cd work
 
 tar xf ../*.xz
+```
 
 step 3: assign vlaues to mentioned variables according to your need.
 
-NEVENTS=10000 RANDOMSEED=12345 NCPU=1
+```
+NEVENTS=10000 
+RANDOMSEED=12345 
+NCPU=1
+```
 
 step 4: run gridpack to produce LHE files
-
+```
 ./runcmsgrid.sh $NEVENTS $RANDOMSEED $NCPU
-
+```
 detailed information is available here : https://twiki.cern.ch/twiki/bin/view/Main/CMSDAS2018_GEN_Draft
 
 # From LHE to histograms
