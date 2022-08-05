@@ -31,6 +31,21 @@ Codes for amplitude computation are stored [here](https://github.com/mpresill/VB
 Line 2 establishes the process (each particle has a code defined in the model, e.g V[3] is associated to W bosons). In lines 3-4 Feynman Diagrams are generated and can be displayed with the command ```Print```. In line 5 a specific diagram is extracted; in fact each diagram is calculated separately to ensure faster calculations. For the same reason the condition in line 6 is imposed, in which it is required to carry out less elaborate simplifications during the calculation. This significantly reduces the run time. In lines 7-8 the amplitude is generated and, in last line, helicities of initial and final states are specified.
 Same steps are repeated for all diagrams associated with the process (3 t-channels, 3 u-channels and 1 contact diagram, for a total of 7 diagrams). Each part is separated by a line break in the code, which would otherwise be too heavy to run. In the end all seven diagrams are added up.
 
+## Further simplifications by-hand
+The obtained expression, actually, is not pretty at all. Further calculation by-hand can be performed to achieve an acceptable expression for the amplitude. You can copy the result in a new Mathematica notebook and start imposing some simplifications:
+
+- only linear contribution to amplitude, i.e. ~ O(c_i), can be selected using the ```Collect``` function of Mathematica:
+```
+In[1] = Collect[expression, variable]
+```
+that collects different powers of specified variable in the expression, e.g.:
+```
+In[1] = Collect[b x^2 + 5 x + 7 x^2 + 9 a x + 2, x]
+Out[1] = 2 + (5+9a)x + (7+b)x^2
+```
+After collection, the factors ~ O(1) and ~ O(c_i^2) are easily identifiable and can be deleted by-hand;
+- Miao
+
 
 # MC simulation 
 step 1: after producing gridpack in the ```genproductions/bin/Madgraph5_aMCatNLO``` or if you already have the gridpack you can copy it in this directory.
