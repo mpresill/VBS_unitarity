@@ -28,6 +28,7 @@ Codes for amplitude computation are stored [here](https://github.com/mpresill/VB
 
 ```
 
+Line 2 establishes the process (each particle has a code defined in the model, e.g ```V[3]``` is associated to W bosons). In lines 3-4 Feynman Diagrams are generated and can be displayed with the command ```Print```. In line 5 a specific diagram is extracted; in fact each diagram is calculated separately to ensure faster calculations. For the same reason the condition in line 6 is imposed, in which it is required to carry out less elaborate simplifications during the calculation. This significantly reduces the run time.
 
 # MC simulation 
 step 1: after producing gridpack in the ```genproductions/bin/Madgraph5_aMCatNLO``` or if you already have the gridpack you can copy it in this directory.
