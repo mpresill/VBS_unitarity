@@ -10,7 +10,7 @@ Several Mathematica extensions must be installed to calculate the scattering amp
 - an additional package is also needed, that is ```VecSet```, defined [here](https://github.com/vsht/formcalc-mirror/blob/master/tools/VecSet.m), which contains functions to define components of four-vectors.
 
 ##Model generation
-First step is the generation of EFT models. To decrease the computational load, it is preferable to generate a different model for each EFT contribution. The Mathematica notebook for model generation is contained in the [FeynArts Models](https://github.com/mpresill/VBS_unitarity/tree/main/FeynArts%20Models) folder. To select the EFT contribution you want to include, simply delete the extra Lagrangian pieces. Cards loaded in the notebook must be downloaded [here](https://github.com/SMEFTsim/SMEFTsim). Once all the models associated with the operators involved have been generated, they must be moved to ```FeynArts / Models``` folder.
+First step is the generation of EFT models. To decrease the computational load, it is preferable to generate a different model for each EFT contribution. The Mathematica notebook for model generation is contained in the [FeynArts Models](https://github.com/mpresill/VBS_unitarity/tree/main/FeynArts%20Models) folder. To select the EFT contribution you want to include, simply delete the extra Lagrangian pieces. Cards loaded in the notebook must be downloaded [here](https://github.com/SMEFTsim/SMEFTsim). Once all the models associated with the operators involved have been generated, they must be moved to ```FeynArts/Models``` folder.
 
 # MC simulation 
 step 1: after producing gridpack in the ```genproductions/bin/Madgraph5_aMCatNLO``` or if you already have the gridpack you can copy it in this directory.
