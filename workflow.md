@@ -13,9 +13,7 @@ step 2: make directory and untar gridpack into that directory.
 
 ```
 mkdir work
-
 cd work
-
 tar xf ../*.xz
 ```
 
