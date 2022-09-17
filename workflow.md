@@ -136,44 +136,20 @@ w = xsec*lum/n
 where ```xsec``` is the cross section of the process, calculated directly by MadGraph in the generation and inserted by hand in the code (specific information can be replaced by few lines that implement the searching for the cross section value directly in the .root file); ```lum``` is luminosity, set to 100 inverse fb by default; ```n``` is the number of events.
 Histograms thus obtained are collected in an unique output file. It's a .root file named with the name of the contribution considered, e.g.
 
-```
-SM.root
-cW_int.root
-cW_quad.root
-```
-!!! WARNING !!! This naming system works as long as the folder where the output is produced is not the same folder where the input files are stored.
-After the running of ```all_observable``` code we have then a .root file containing histograms filled with observable of interest. Fore more complex observables, these ones are defined and constructed directly in the code. 
-For mixed-contributions histograms, ```hadd``` command should be used.
-Summarizing, the list of commands to obtain distribution for, e.g., cW contributions to invariant mass of jets, are:
 
-```
-./all_mjj SM
-./all_mjj cW_int
-./all_mjj cW_quad
-hadd -f SM_cW_int_quad.root SM.root cW_int.root cW_quad.root  
 ```
 NB: Root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
 
-### Producing combine friendly files: "merge" and "merge_multipart" codes
+### Producing combine friendly files: "merge" code
 
-Combine requires specific names for histograms of background's (SM) and signal's (SM+EFT) histograms. ```merge``` and ```merge_multipart``` codes arrange histograms previously produced into a single .root file which can be easily read by combine. ```merge``` requires as first input the observable that you want to consider, and as second input the particle to which that observable is associated. For example, to study transverse momenta of higher energy jet the command line is:
-
-```
-./merge PT j1
-```
-```merge_multipart``` has as its only argument the observable of interest:
+Combine requires specific names for background's (SM) and signal's (SM+EFT) histograms. ```merge``` code arranges histograms previously produced into a single .root file which can be easily read by combine. The code requires the observable of interest as argument:
 
 ```
-./merge_multipart mjj
+./merge observable
 ```
-Path of histograms produced with ```all_observable``` must be properly specified in the code. EFT contribution to include in the file must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is a .root file named with the considered observable. Some examples are listed below.
 
-```
-Eta_l1.root
-PT_j2.root
-mll.root
-```
-These files can interface directly with combine for likelihood scan application.
+Path of histograms produced with ```definitivo``` must be properly specified in the code. EFT contribution to include in the file must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is a .root file named ```observable.root```.
+This file can interface directly with combine for likelihood scan application.
 
 ## Plotting tool
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
