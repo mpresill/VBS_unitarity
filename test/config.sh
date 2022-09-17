@@ -5,6 +5,9 @@ make
 make install
 cd ..
 
+chmod +x combine_histos.sh
+chmod +x hist_building.sh
+
 mkdir data
 mkdir histos4datacards
 mkdir histos
