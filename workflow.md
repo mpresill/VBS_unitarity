@@ -101,7 +101,7 @@ Note: In order to read tree and branches of these root files, ```ExRootTreeReade
 ## Costanza's workflow
 
 Codes for the production of histograms are available in [test](https://github.com/mpresill/VBS_unitarity/tree/main/test) repository. 
-Download the folder and run the configuration file:
+Download the folder and run the configuration script:
 
 ```
 chmod +x config.sh
