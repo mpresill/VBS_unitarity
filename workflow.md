@@ -123,13 +123,30 @@ Code requires three arguments:
 - first one is the name of observable;
 - second one is ```full``` or ```single```, based on whether you are using the sample for reweighting or the samples for single-operator analysis;
 - third one selects the operator: for full sample analysis you have to specify coefficient and value (e.g. cW_m0p1 for cW = -0.1), for single operator analysis it is necessary to specify the coefficient and the EFT term (e.g. cW_int for linear contribution and cW_quad for quadratic contribution).
+
 Examples are given below:
 
 ```
 ./definitivo deltaEtajj full cW_1
 ./definitivo deltaEtajj single cW_quad
 ```
+Output files are stored in the folder ```histos/observable```. 
 
+Note: ```definitivo``` contains the definition of observables. To add observables to the analysis, new functions must be defined.
+
+## Linear and quadratic terms in full-sample analysis: "split_eft_contr" code
+Full sample contains SM + Linear_EFT + Quadratic_EFT contributions. EFT terms can be obtained separately in the case of c_i = 1 using the code ```split_eft_contr``` should be applied. Here following formulas are implemented:
+
+```
+N(lin) = 0.5*(N(c_i = 1) - N(c_i = -1))
+N(quad) = 0.5*(N(c_i = 1) + N(c_i = -1)) - N(SM)
+```
+So before running the code it is necessary to produce three histograms: SM one, full c_i = 1 and full c_i = -1.
+The command line is:
+
+```
+./split_eft_contr deltaEtajj cW
+```
 
 
 
