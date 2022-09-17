@@ -89,7 +89,7 @@ detailed information is available here : https://twiki.cern.ch/twiki/bin/view/Ma
 
 # From LHE to histograms
 
-##ExRootAnalysis
+## ExRootAnalysis
 The starting file is a .root file obtained from the .lhe file using the ```ExRootAnalysis``` package, available [here](https://madgraph.mi.infn.it/Downloads/ExRootAnalysis/). Follow the instructions in ```README``` file for the installation.
 Conversion from lhe to root can be done with following command line:
 
