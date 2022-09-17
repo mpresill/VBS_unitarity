@@ -108,11 +108,14 @@ chmod +x config.sh
 ./config.sh
 ```
 
-
-
-
-```Particle``` branch contains all kinematic informations about the event: for example, ```Particle.PT``` is a histograms filled with PTs of all particles entering the event. Starting from here, it is possible to obtain the kinematic information relating to the single particles (pseudorapidity, transverse momenta, etc.) and construct more complex observables (transverse masses, etc.). 
-### Histograms production: "all_observable" codes
+Put in ```data``` folder your .root file. 
+Files for operators entering VBS ssWW are available [here](https://cernbox.cern.ch/index.php/s/00ujWKQyEtiVkHI). Sample for reweighting application is ```full.root```; other files contain single operator contributions.
+Each file has three branches:
+- ```Event``` branch contains information about events ID and events weight;
+- ```Rwgt``` branch contains reweighting weights;
+- ```Particle``` branch contains all kinematic informations about the event. 
+- 
+### Histograms production: "definitivo" code
 The codes used to construct histograms of a specific observable are written in C++ and are stored in [src (w bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%20bound)) and [src (w/o bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%7Co%20bound)) repositories, under the name ```all_observable``` (where "observable" is the observable of interest). Codes require as argument the name of the root file, e.g.
 
 ```
