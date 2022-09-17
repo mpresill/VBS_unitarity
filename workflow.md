@@ -147,7 +147,7 @@ The command line is:
 ```
 ./split_eft_contr deltaEtajj cW
 ```
-## FAST PRODUCTION
+## Fast production
 Automatic production of all histograms (linear, quadratic, SM + EFT, SM) can be performed using the shell script ```hist_building.sh```.
 To run it, specify observable and coefficient, e.g.:
 
@@ -168,7 +168,7 @@ Combine requires specific names for background's (SM) and signal's (SM+EFT) hist
 EFT contribution must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is stored in ```histos4datacards``` folder.
 This file can interface directly with combine for likelihood scan application.
 
-# FAST PRODUCTION FOR VBS ssWW
+## Fast production for VBS ssWW
 All described steps are implemented in ```combine_histos.sh``` shell script. Running, for example:
 
 ```
