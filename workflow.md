@@ -96,6 +96,11 @@ Conversion from lhe to root can be done with following command line:
 ```
 ./ExRootLHEFConverter Miao.lhe Miao.root
 ```
+Structure of rootfiles is the following:
+- ```Event``` branch contains information about events ID and events weight;
+- ```Rwgt``` branch contains reweighting weights;
+- ```Particle``` branch contains all kinematic informations about the event. 
+
 Note: In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed. Make sure they have been installed correctly.
 
 ## Costanza's workflow
@@ -110,11 +115,8 @@ chmod +x config.sh
 
 Put in ```data``` folder your .root file. 
 Files for operators entering VBS ssWW are available [here](https://cernbox.cern.ch/index.php/s/00ujWKQyEtiVkHI). Sample for reweighting application is ```full.root```; other files contain single operator contributions.
-Each file has three branches:
-- ```Event``` branch contains information about events ID and events weight;
-- ```Rwgt``` branch contains reweighting weights;
-- ```Particle``` branch contains all kinematic informations about the event. 
-- 
+
+
 ### Histograms production: "definitivo" code
 The codes used to construct histograms of a specific observable are written in C++ and are stored in [src (w bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%20bound)) and [src (w/o bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%7Co%20bound)) repositories, under the name ```all_observable``` (where "observable" is the observable of interest). Codes require as argument the name of the root file, e.g.
 
