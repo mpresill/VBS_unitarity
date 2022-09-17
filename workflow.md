@@ -136,9 +136,7 @@ w = xsec*lum/n
 where ```xsec``` is the cross section of the process, calculated directly by MadGraph in the generation and inserted by hand in the code (specific information can be replaced by few lines that implement the searching for the cross section value directly in the .root file); ```lum``` is luminosity, set to 100 inverse fb by default; ```n``` is the number of events.
 Histograms thus obtained are collected in an unique output file. It's a .root file named with the name of the contribution considered, e.g.
 
-
-```
-NB: Root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
+Note: .root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
 
 ### Producing combine friendly files: "merge" code
 
