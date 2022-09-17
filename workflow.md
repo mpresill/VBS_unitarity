@@ -89,7 +89,7 @@ detailed information is available here : https://twiki.cern.ch/twiki/bin/view/Ma
 
 # From LHE to histograms
 
-## Lhe to root conversione: ExRootAnalysis
+## Lhe to root conversion: ExRootAnalysis
 The starting file is a .root file obtained from the .lhe file using the ```ExRootAnalysis``` package, available [here](https://madgraph.mi.infn.it/Downloads/ExRootAnalysis/). Follow the instructions in ```README``` file for the installation.
 Conversion from lhe to root can be done with following command line:
 
@@ -103,7 +103,7 @@ Structure of rootfiles is the following:
 
 Note: In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed. Make sure they have been installed correctly.
 
-## Configuration of tools
+## Tools configuration
 
 Codes for the production of histograms are available in [test](https://github.com/mpresill/VBS_unitarity/tree/main/test) repository. 
 Download the folder and run the configuration script:
@@ -135,7 +135,7 @@ Output files are stored in the folder ```histos/observable```.
 Note: ```definitivo``` contains the definition of observables. To add observables to the analysis, new functions must be defined.
 
 ## Linear and quadratic terms in full-sample analysis: "split_eft_contr" code
-Full sample contains SM + Linear_EFT + Quadratic_EFT contributions. EFT terms can be obtained separately in the case of c_i = 1 using the code ```split_eft_contr``` should be applied. Here following formulas are implemented:
+Full sample contains SM + Linear_EFT + Quadratic_EFT contributions. EFT terms can be obtained separately in the case of c_i = 1 using the code ```split_eft_contr```. Here following formulas are implemented:
 
 ```
 N(lin) = 0.5*(N(c_i = 1) - N(c_i = -1))
@@ -147,27 +147,34 @@ The command line is:
 ```
 ./split_eft_contr deltaEtajj cW
 ```
-
-
+## FAST PRODUCTION
+Automatic production of all histograms (linear, quadratic, SM + EFT, SM) can be performed using the shell script ```hist_building.sh```.
+To run it, specify observable and coefficient, e.g.:
 
 ```
-w = xsec*lum/n
+./hist_building.sh deltaEtajj cW
 ```
-where ```xsec``` is the cross section of the process, calculated directly by MadGraph in the generation and inserted by hand in the code (specific information can be replaced by few lines that implement the searching for the cross section value directly in the .root file); ```lum``` is luminosity, set to 100 inverse fb by default; ```n``` is the number of events.
-Histograms thus obtained are collected in an unique output file. It's a .root file named with the name of the contribution considered, e.g.
 
 Note: .root files thus obtained are useful for visualize observable distributions, but are NOT combine friendly. 
 
-### Producing combine friendly files: "merge" code
+# Producing combine friendly files: "merge" code
 
-Combine requires specific names for background's (SM) and signal's (SM+EFT) histograms. ```merge``` code arranges histograms previously produced into a single .root file which can be easily read by combine. The code requires the observable of interest as argument:
+Combine requires specific names for background's (SM) and signal's (SM+EFT) histograms. ```merge``` code arranges histograms previously produced into a single .root file which can be easily read by combine. The code requires the observable of interest as argument, e.g.:
 
 ```
-./merge observable
+./merge deltaEtajj
 ```
 
-Path of histograms produced with ```definitivo``` must be properly specified in the code. EFT contribution to include in the file must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is a .root file named ```observable.root```.
+EFT contribution must be selected in the code too (there's a section for each EFT operator, just comment the ones you want to exclude). The output file is stored in ```histos4datacards``` folder.
 This file can interface directly with combine for likelihood scan application.
+
+# FAST PRODUCTION FOR VBS ssWW
+All described steps are implemented in ```combine_histos.sh``` shell script. Running, for example:
+
+```
+./combine_histos.sh deltaEtajj
+```
+you produce all deltaEtajj distributions for each EFT contribution and collect everything in the combine-friendly file.
 
 ## Plotting tool
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
