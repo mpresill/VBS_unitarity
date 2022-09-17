@@ -177,6 +177,7 @@ All described steps are implemented in ```combine_histos.sh``` shell script. Run
 you produce all deltaEtajj distributions for each EFT contribution and collect everything in the combine-friendly file.
 
 ## Plotting tool
+
 Inspired from [this prototype](https://github.com/acappati/mg5tut_apr21_plots).
 
 
