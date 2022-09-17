@@ -89,7 +89,7 @@ detailed information is available here : https://twiki.cern.ch/twiki/bin/view/Ma
 
 # From LHE to histograms
 
-## ExRootAnalysis
+## Lhe to root conversione: ExRootAnalysis
 The starting file is a .root file obtained from the .lhe file using the ```ExRootAnalysis``` package, available [here](https://madgraph.mi.infn.it/Downloads/ExRootAnalysis/). Follow the instructions in ```README``` file for the installation.
 Conversion from lhe to root can be done with following command line:
 
@@ -103,7 +103,7 @@ Structure of rootfiles is the following:
 
 Note: In order to read tree and branches of these root files, ```ExRootTreeReader.h``` and ```ExRootClasses.h``` libraries are needed. Make sure they have been installed correctly.
 
-## Costanza's workflow
+## Configuration of tools
 
 Codes for the production of histograms are available in [test](https://github.com/mpresill/VBS_unitarity/tree/main/test) repository. 
 Download the folder and run the configuration script:
@@ -117,23 +117,21 @@ Put in ```data``` folder your .root file.
 Files for operators entering VBS ssWW are available [here](https://cernbox.cern.ch/index.php/s/00ujWKQyEtiVkHI). Sample for reweighting application is ```full.root```; other files contain single operator contributions.
 
 
-### Histograms production: "definitivo" code
-The codes used to construct histograms of a specific observable are written in C++ and are stored in [src (w bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%20bound)) and [src (w/o bound)](https://github.com/mpresill/VBS_unitarity/tree/main/combine/Analysis%20tools/src%20(w%7Co%20bound)) repositories, under the name ```all_observable``` (where "observable" is the observable of interest). Codes require as argument the name of the root file, e.g.
+## Histograms production: "definitivo" code
+The code used to produce histograms is named ```definitivo``` and source file is stored in [src](https://github.com/mpresill/VBS_unitarity/tree/main/test/src). 
+Code requires three arguments:
+- first one is the name of observable;
+- second one is ```full``` or ```single```, based on whether you are using the sample for reweighting or the samples for single-operator analysis;
+- third one selects the operator: for full sample analysis you have to specify coefficient and value (e.g. cW_m0p1 for cW = -0.1), for single operator analysis it is necessary to specify the coefficient and the EFT term (e.g. cW_int for linear contribution and cW_quad for quadratic contribution).
+Examples are given below:
 
 ```
-./all_mjj SM
-./all_mjj cW_int
-./all_mjj cW_quad
-```
-For the correct working of the codes, path of .root files and of the output file must be modified directly in the code (it may be possible to add two input arguments corresponding to two paths, to make the codes more general). Taking as an example the code ``` all_Eta```, it uses the PDG particle numbering scheme to search in ```Particle.Eta``` branch the value of pseudorapidity of outcoming charged particles (two leptons in the final state and two quarks that hadronize), event for event (NB: in some cases, the index of the particle in the event is used instead of PDG number for the identification).
-```
-if(abs(Particle->PID)<10&&(j==npart-1||j==npart-2)) {
-      				  Etaj.push_back(Particle->Eta); }    
-else if(abs(Particle->PID)==11||abs(Particle->PID)==15||abs(Particle->PID)==13) {
-      				  Etal.push_back(Particle->Eta); }
+./definitivo deltaEtajj full cW_1
+./definitivo deltaEtajj single cW_quad
 ```
 
-Pseudorapidities of these particles are then collected in different histograms (one for each different type of particle): the latter are normalized with following weight
+
+
 
 ```
 w = xsec*lum/n
